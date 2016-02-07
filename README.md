@@ -19,7 +19,7 @@ $ python3 setup.py install --user
 #### 基于HMM的转换
 原理是viterbi算法。
 
-```
+```python
 from Pinyin2Hanzi import DefaultHmmParams
 from Pinyin2Hanzi import viterbi
 
@@ -43,16 +43,17 @@ for item in result:
 -19.423677486918002 ['你', '只', '不', '知', '道']
 '''
 
-
+## 2个候选，使用对数打分
 result = viterbi(hmm_params=hmmparams, observations=('ni', 'zhii', 'bu', 'zhi', 'dao'), path_num = 2, log = True)
 for item in result:
     print(item.score, item.path)
+# 发生KeyError，`zhii`不规范
 ```
 
 #### 基于DAG的转换
 原理是词库+动态规划。
 
-```
+```python
 from Pinyin2Hanzi import DefaultDagParams
 from Pinyin2Hanzi import dag
 
@@ -75,13 +76,19 @@ for item in result:
 -2.5111434226494866 ['你不知道', '的', '是']
 -3.1822566564324477 ['你不知道', '的', '诗']
 '''
+
+## 2个候选，使用对数打分
+result = dag(dagparams, ('ni', 'bu', 'zhi', 'dao', 'de', 'shii'), path_num=2, log=True)
+print(result)
+# 输出空列表，因为`shii`不存在
+
 ```
 
 #### 关于拼音
 给出的拼音必须是规范的。例如“略”的音必须是`lve`。
 
 将拼音转换为规范的拼音：
-```
+```python
 from Pinyin2Hanzi import simplify_pinyin
 
 print(simplify_pinyin('lue'))
@@ -92,7 +99,7 @@ print(simplify_pinyin('lüè'))
 ```
 
 判断是否是规范的拼音：
-```
+```python
 from Pinyin2Hanzi import is_pinyin
 
 print(is_pinyin('lue'))

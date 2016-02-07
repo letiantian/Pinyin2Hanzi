@@ -1,6 +1,6 @@
 # Pinyin2Hanzi
 
-拼音转汉字，可以作为拼音输入法的转换引擎，兼容Python 2、Python 3
+拼音转汉字，可以作为拼音输入法的转换引擎，兼容Python 2、Python 3。
 
 ## 安装
 Python 2：
@@ -114,6 +114,9 @@ print(is_pinyin('lvee'))
 print(is_pinyin('lve'))
 # 输出：True
 ```
+
+## 训练
+原始数据和训练代码在`train`目录下。
 
 ## License
 MIT

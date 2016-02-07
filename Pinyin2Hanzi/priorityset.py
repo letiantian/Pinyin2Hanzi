@@ -16,6 +16,24 @@ class Item(object):
     def path(self):
         return self.__path
 
+    def __lt__(self, other):
+        return self.__score < other.score
+
+    def __le__(self, other):
+        return self.__score <= other.score
+
+    def __eq__(self, other):
+        return self.__score == other.score
+
+    def __ne__(self, other):
+        return self.__score != other.score
+
+    def __gt__(self, other):
+        return self.__score > other.score
+
+    def __ge__(self, other):
+        return self.__score >= other.score
+
     def __str__(self):
         return '< score={0}, path={1} >'.format(self.__score, self.__path)
 

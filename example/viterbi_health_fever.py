@@ -1,10 +1,9 @@
 # coding: utf-8
 
-import sys
-sys.path.append('..')
+from __future__ import (print_function, unicode_literals)
 
-from Pinyin2Hanzi.interface import AbstractHmmParams
-from Pinyin2Hanzi.viterbi import viterbi
+from Pinyin2Hanzi import AbstractHmmParams
+from Pinyin2Hanzi import viterbi
 
 class HmmParams(AbstractHmmParams):
 
@@ -45,34 +44,34 @@ class HmmParams(AbstractHmmParams):
 
 result = viterbi(hmm_params=HmmParams(), observations=('normal', 'cold', 'dizzy'), path_num = 10, log = False)
 for item in result:
-    print item.score, item.path
+    print(item.score, item.path)
 
-print 20*'--'
+print(20*'--')
 
 result = viterbi(hmm_params=HmmParams(), observations=('normal', 'cold', 'dizzy'), path_num = 2, log = False)
 for item in result:
-    print item.score, item.path
+    print(item.score, item.path)
 
-print 20*'--'
+print(20*'--')
 
 result = viterbi(hmm_params=HmmParams(), observations=('normal', 'cold', 'dizzy'), path_num = 1, log = False)
 for item in result:
-    print item.score, item.path
+    print(item.score, item.path)
 
-print 20*'--'
+print(20*'--')
 
 result = viterbi(hmm_params=HmmParams(), observations=('normal', 'cold', 'dizzy'), path_num = 1)
 for item in result:
-    print item.score, item.path
+    print(item.score, item.path)
 
-print 20*'--'
+print(20*'--')
 
 result = viterbi(hmm_params=HmmParams(), observations=('normal', 'cold', 'dizzy'), path_num = 4, log = True)
 for item in result:
-    print item.score, item.path
+    print(item.score, item.path)
 
-print 20*'--'
+print(20*'--')
 
 result = viterbi(hmm_params=HmmParams(), observations=('normal', 'cold', 'dizzy'), path_num = 2, log = True)
 for item in result:
-    print item.score, item.path
+    print(item.score, item.path)

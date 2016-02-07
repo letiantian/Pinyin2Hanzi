@@ -18,6 +18,9 @@ def readdatafromfile(filename):
     with open(filename) as outfile:
         return json.load(outfile)
 
+def _filter(s):
+    s = s.replace(chr(0), '')
+    return s
 
 def get_weight(raw_value, raw_min, raw_max, weight_min, weigth_max):
     raw_value = float(raw_value)
@@ -44,6 +47,8 @@ def gen_dag_char():
         if pinyin == 'max_num' or pinyin == 'min_num':
             continue
         for hanzi in data[pinyin]:
+            hanzi = _filter(hanzi)
+            pinyin = _filter(pinyin)
             num = data[pinyin][hanzi]
             result.setdefault(pinyin, [])
             weight = get_weight(num, min_num, max_num, 0.1, 0.2)
@@ -65,6 +70,8 @@ def gen_dag_phrase():
         if pinyin == 'max_num' or pinyin == 'min_num':
             continue
         for phrase in data[pinyin]:
+            phrase = _filter(phrase)
+            pinyin = _filter(pinyin)
             num = data[pinyin][phrase]
             result.setdefault(pinyin, [])
             weight = get_weight(num, min_num, max_num, 0.2, 1.0)

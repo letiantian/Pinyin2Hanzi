@@ -1,7 +1,8 @@
 # coding: utf-8
+from __future__ import (print_function, unicode_literals, absolute_import)
 
-from interface import AbstractHmmParams
-from priorityset import PrioritySet
+from .interface import AbstractHmmParams
+from .priorityset import PrioritySet
 import math
 
 def viterbi(hmm_params, observations, path_num=6, log=False, min_prob=3.14e-200):

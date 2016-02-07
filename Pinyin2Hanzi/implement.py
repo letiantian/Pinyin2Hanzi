@@ -1,9 +1,11 @@
 # coding: utf-8
+from __future__ import (print_function, unicode_literals, absolute_import)
 
-from interface import AbstractHmmParams, AbstractDagParams
+from .interface import AbstractHmmParams, AbstractDagParams
+from .util import as_text
 import os
 import json
-import util
+
 
 DATA    = 'data'
 DEFAULT = 'default'
@@ -26,7 +28,7 @@ class DefaultHmmParams(AbstractHmmParams):
 
     def start(self, state):
         ''' get start prob of state(hanzi) '''
-        state = util.as_text(state)
+        state = as_text(state)
 
         data = self.start_dict[DATA]
         default = self.start_dict[DEFAULT]
@@ -40,8 +42,8 @@ class DefaultHmmParams(AbstractHmmParams):
 
     def emission(self, state, observation):
         ''' state (hanzi) -> observation (pinyin) '''
-        pinyin = util.as_text(observation)
-        hanzi = util.as_text(state)
+        pinyin = as_text(observation)
+        hanzi = as_text(state)
 
         data = self.emission_dict[DATA]
         default = self.emission_dict[DEFAULT] 
@@ -58,8 +60,8 @@ class DefaultHmmParams(AbstractHmmParams):
 
     def transition(self, from_state, to_state):
         ''' state -> state '''
-        from_state = util.as_text(from_state)
-        to_state = util.as_text(to_state)
+        from_state = as_text(from_state)
+        to_state = as_text(to_state)
         prob = 0.0
 
         data = self.transition_dict[DATA]

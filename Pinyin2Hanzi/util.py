@@ -1,6 +1,5 @@
 # coding: utf-8
-
-from __future__ import (print_function, unicode_literals)
+from __future__ import (print_function, unicode_literals, absolute_import)
 
 import os
 import sys
@@ -86,6 +85,9 @@ __removetone_dict = {
     'ǘ': 'v',
     'ǚ': 'v',
     'ǜ': 'v',
+    'ń': 'n',
+    'ň': 'n',
+    '': 'm',
 }
 
 ## 由于从 __future__ 导入了 unicode_literals ， 所以字符串默认是unicode的
@@ -119,7 +121,7 @@ def normlize_pinyin(one_py):
     return one_py
 
 def simplify_pinyin(one_py):
-    return normlize_pinyin( remove_tone(one_py) )
+    return normlize_pinyin( remove_tone(one_py.lower()) )
 
 # 拼音
 __pinyin = set(['gu','qiao','qian','qve','ge','gang','ga','lian','liao','rou','zong',\

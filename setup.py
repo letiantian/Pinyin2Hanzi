@@ -10,7 +10,7 @@ Please go to https://github.com/someus/Pinyin2Hanzi for more info.
 
 setup(
     name='Pinyin2Hanzi',
-    version='0.1.0',
+    version='0.1.1',
     description='拼音转汉字， Engine of Chinese Input Method',
     long_description=LONGDOC,
     author='Letian Sun',

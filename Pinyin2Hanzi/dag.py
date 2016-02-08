@@ -34,7 +34,7 @@ def dag(dag_params, pinyin_list, path_num=6, log=False):
             kvs = dag_params.get_phrase(pinyin_list[from_idx:to_idx+1], num=path_num)
             for prev_item in prev_paths:
                 for item in kvs:
-                    word = prev_item.path + [ _ for _ in item[0] ]
+                    word = prev_item.path + [ item[0] ]
                     if log:
                         score = prev_item.score + math.log(item[1])
                     else:

@@ -48,11 +48,6 @@ result = viterbi(hmm_params=hmmparams, observations=('ni', 'zhii', 'bu', 'zhi', 
 for item in result:
     print(item.score, item.path)
 # 发生KeyError，`zhii`不规范
-
-
-result = viterbi(hmm_params=hmmparams, observations=[u'ti', u'chu', u'le', u'jie', u'jve', u'fang', u'an'], path_num = 2, log = True)
-for item in result:
-    print(item.score, item.path)
 ```
 
 #### 基于DAG的转换
@@ -69,8 +64,8 @@ result = dag(dagparams, ('ni', 'bu', 'zhi', 'dao', 'de', 'shi'), path_num=2)
 for item in result:
     print(item.score, item.path)
 ''' 输出
-0.08117536840088911 ['你不知道', '的', '是']
-0.04149191639287887 ['你不知道', '的', '诗']
+0.08117536840088911 ['你不知道', '的是']
+0.04149191639287887 ['你不知道', '的诗']
 '''
 
 ## 2个候选，使用对数打分
@@ -78,19 +73,20 @@ result = dag(dagparams, ('ni', 'bu', 'zhi', 'dao', 'de', 'shi'), path_num=2, log
 for item in result:
     print(item.score, item.path)
 ''' 输出
--2.5111434226494866 ['你不知道', '的', '是']
--3.1822566564324477 ['你不知道', '的', '诗']
+-2.5111434226494866 ['你不知道', '的是']
+-3.1822566564324477 ['你不知道', '的诗']
+'''
+
+## 1个候选
+print( dag(dagparams, ['ti', 'chu', 'le', 'bu', 'cuo', 'de', 'jie', 'jve', 'fang', 'an'], path_num=1) )
+'''输出
+[< score=0.0017174549839096384, path=['提出了', '不错', '的', '解决方案'] >]
 '''
 
 ## 2个候选，使用对数打分
 result = dag(dagparams, ('ni', 'bu', 'zhi', 'dao', 'de', 'shii'), path_num=2, log=True)
 print(result)
 # 输出空列表，因为`shii`不存在
-
-
-result = dag(dagparams, [u'ti', u'chu', u'le', u'jie', u'jve', u'fang', u'an'], path_num=2, log=True)
-print(result)
-
 ```
 
 #### 关于拼音

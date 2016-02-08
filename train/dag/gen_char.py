@@ -34,6 +34,7 @@ min_num = 100000000000000.
 
 for hanzi in data:
     for pinyin in data[hanzi]:
+        pinyin = util.simplify_pinyin(pinyin)
         num = data[hanzi][pinyin]
         key = pinyin
         result.setdefault(key, {})
@@ -49,6 +50,8 @@ for line in open(pinyin2hanzi_file):
     pinyin, chars = line.split('=')
     if len(pinyin) == 0 or len(chars) == 0:
         continue
+
+    pinyin = util.simplify_pinyin(pinyin)
 
     for hanzi in chars:
         key = pinyin

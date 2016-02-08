@@ -34,8 +34,9 @@ for line in open('./word.txt'):
         continue
     word, num = line.split('=')
     num = float(num)
-    pinyin_list = PinyinHelper.convertToPinyinFromSentence(word, pinyinFormat=PinyinFormat.WITHOUT_TONE, segment=cut)
+    pinyin_list = PinyinHelper.convertToPinyinFromSentence(word, segment=cut)
     pinyins = ','.join(pinyin_list)
+    pinyins = util.simplify_pinyin(pinyins)
     result.setdefault(pinyins, {})
     result[pinyins].setdefault(word, 0)
     result[pinyins][word] += num
@@ -48,8 +49,9 @@ for line in open('./phrase.txt'):
         continue
     word, _ = line.split('=')
     num = 1.
-    pinyin_list = PinyinHelper.convertToPinyinFromSentence(word, pinyinFormat=PinyinFormat.WITHOUT_TONE, segment=cut)
+    pinyin_list = PinyinHelper.convertToPinyinFromSentence(word, segment=cut)
     pinyins = ','.join(pinyin_list)
+    pinyins = util.simplify_pinyin(pinyins)
     result.setdefault(pinyins, {})
     result[pinyins].setdefault(word, 0)
     result[pinyins][word] += num

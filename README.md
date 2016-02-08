@@ -48,6 +48,11 @@ result = viterbi(hmm_params=hmmparams, observations=('ni', 'zhii', 'bu', 'zhi', 
 for item in result:
     print(item.score, item.path)
 # 发生KeyError，`zhii`不规范
+
+
+result = viterbi(hmm_params=hmmparams, observations=[u'ti', u'chu', u'le', u'jie', u'jve', u'fang', u'an'], path_num = 2, log = True)
+for item in result:
+    print(item.score, item.path)
 ```
 
 #### 基于DAG的转换
@@ -81,6 +86,10 @@ for item in result:
 result = dag(dagparams, ('ni', 'bu', 'zhi', 'dao', 'de', 'shii'), path_num=2, log=True)
 print(result)
 # 输出空列表，因为`shii`不存在
+
+
+result = dag(dagparams, [u'ti', u'chu', u'le', u'jie', u'jve', u'fang', u'an'], path_num=2, log=True)
+print(result)
 
 ```
 
@@ -116,7 +125,7 @@ print(is_pinyin('lve'))
 ```
 
 ## 训练
-原始数据和训练代码在`train`目录下。
+原始数据和训练代码在`train`目录下。数据来自[jpinyin](https://github.com/stuxuhai/jpinyin)、[pinyin](https://github.com/overtrue/pinyin)、搜狗语料库等。
 
 ## License
 MIT

@@ -164,6 +164,10 @@ __complex_yunmu = set(['ai','ei','ui','ao','ou','iu','ie','ve','er','an','en','i
 def is_pinyin(v):
     return v in __pinyin
 
+def all_pinyin():
+    for _ in __pinyin:
+        yield _
+
 def is_shengmu(v):
     return v in __shengmu
 

@@ -89,6 +89,9 @@ print(result)
 # 输出空列表，因为`shii`不存在
 ```
 
+#### 自定义params
+实现AbstractHmmParams, AbstractDagParams这两个接口即可。具体可以参考源码。
+
 #### 关于拼音
 给出的拼音必须是规范的。例如“略”的音必须是`lve`。
 

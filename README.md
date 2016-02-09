@@ -93,9 +93,19 @@ print(result)
 实现AbstractHmmParams, AbstractDagParams这两个接口即可。具体可以参考源码。
 
 #### 关于拼音
-给出的拼音必须是规范的。例如“略”的音必须是`lve`。
+给出的拼音必须是“规范”的。例如
 
-将拼音转换为规范的拼音：
+* 略 -> lve
+* 据 -> ju
+
+列举所有“规范”的拼音：
+```python
+from Pinyin2Hanzi import all_pinyin
+for py in all_pinyin():
+        print(py)
+```
+
+将拼音转换为“规范”的拼音：
 ```python
 from Pinyin2Hanzi import simplify_pinyin
 
@@ -106,7 +116,7 @@ print(simplify_pinyin('lüè'))
 # 输出：'lve'
 ```
 
-判断是否是规范的拼音：
+判断是否是“规范”的拼音：
 ```python
 from Pinyin2Hanzi import is_pinyin
 
@@ -124,7 +134,7 @@ print(is_pinyin('lve'))
 ```
 
 ## 训练
-原始数据和训练代码在`train`目录下。数据来自[jpinyin](https://github.com/stuxuhai/jpinyin)、[pinyin](https://github.com/overtrue/pinyin)、搜狗语料库等。
+原始数据和训练代码在`train`目录下。数据来自[jpinyin](https://github.com/stuxuhai/jpinyin)、[pinyin](https://github.com/overtrue/pinyin)、[搜狗语料库-互联网词库](http://www.sogou.com/labs/dl/w.html)等。
 
 ## License
 MIT

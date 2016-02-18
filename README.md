@@ -134,7 +134,11 @@ print(is_pinyin('lve'))
 ```
 
 ## 训练
-原始数据和训练代码在`train`目录下。数据来自[jpinyin](https://github.com/stuxuhai/jpinyin)、[pinyin](https://github.com/overtrue/pinyin)、[搜狗语料库-互联网词库](http://www.sogou.com/labs/dl/w.html)等。
+原始数据和训练代码在`train`目录下。数据来自[jpinyin](https://github.com/stuxuhai/jpinyin)、[pinyin](https://github.com/overtrue/pinyin)、[搜狗语料库-互联网词库](http://www.sogou.com/labs/dl/w.html)等。处理数据时用到了汉字转拼音
+工具[ChineseTone](https://github.com/someus/ChineseTone)。
+
+## 原理
+[如何实现拼音与汉字的互相转换](http://www.letiantian.me/2016-02-08-pinyin-hanzi/)
 
 ## License
 MIT

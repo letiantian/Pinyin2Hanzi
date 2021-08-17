@@ -138,7 +138,7 @@ print(is_pinyin('lve'))
 工具[ChineseTone](https://github.com/someus/ChineseTone)。
 
 ## 原理
-[如何实现拼音与汉字的互相转换](http://www.letiantian.me/2016-02-08-pinyin-hanzi/)
+[如何实现拼音与汉字的互相转换](https://www.letianbiji.com/note/2016-02-08-pinyin-hanzi.html)
 
 ## License
 MIT

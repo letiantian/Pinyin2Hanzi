@@ -155,6 +155,8 @@ __pinyin = set(['gu','qiao','qian','qve','ge','gang','ga','lian','liao','rou','z
     'zhu','ceng','zha','zhe','zhi','qin','pin','ai','chai','qia','chao','ao','an','qiu','ni','zhong',\
     'zang','nai','nan','nao','chuo','tie','you','nu','nv','zheng','leng','zhou','lang','e',])
 
+__pinyin_break_candidate = __pinyin.update(('que', 'yue', 'jue', 'lue', 'xue', 'nue'))
+
 # 声母
 __shengmu = set(['b','p','m','f','d','t','n','l','g','k','h','j','q','x','zh','ch','sh','r','z','c','s',])
 # 韵母

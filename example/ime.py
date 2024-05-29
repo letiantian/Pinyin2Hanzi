@@ -34,6 +34,6 @@ while True:
         print(line)
         for result in transform_by_viterbi(line):
             print(result)
-
-
+    else:
+        print("Failed to break pinyin from input")
 

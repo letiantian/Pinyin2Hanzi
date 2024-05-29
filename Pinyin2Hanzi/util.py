@@ -210,7 +210,6 @@ def break_pinyin(s):
             if not following:
                 return [word]
             following = break_pinyin(following)
-            if following is None:
-                return None
-            return [word] + following
+            if following:
+                return [word] + following
     return None
